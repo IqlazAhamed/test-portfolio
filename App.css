@@ -1,0 +1,381 @@
+/* ===============================
+   GLOBAL RESET & THEME
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #000000;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+/* ===============================
+   LAYOUT
+================================ */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  width: 100%;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+.sidebar {
+  width: 60px;
+  background: #020617;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sidebar button:hover {
+  transform: scale(1.15);
+  color: #e5e7eb;
+}
+
+/* ===============================
+   TERMINAL HEADER
+================================ */
+.terminal {
+  background: #020617;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+#typing {
+  color: #e5e7eb;
+  /* soft white */
+  font-weight: 500;
+}
+
+.cursor {
+  color: #e5e7eb;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.green {
+  color: #22c55e;
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+.section {
+  margin-bottom: 80px;
+}
+
+.section h2 {
+  color: #e5e7eb;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   CARDS (Bootstrap Enhanced)
+================================ */
+.card {
+  background-color: #111827;
+  color: #e5e7eb;
+  border-radius: 14px;
+  border: 1px solid #1f2937;
+}
+
+.card li {
+  color: #cbd5e1;
+}
+
+.text-muted-soft {
+  color: #9ca3af;
+}
+
+/* TEXT FIX */
+.text-secondary,
+.text-muted {
+  color: #9ca3af !important;
+  /* readable gray */
+}
+
+.card p,
+.card h5 {
+  color: #e5e7eb;
+}
+
+.project-card p {
+  color: #cbd5f5;
+}
+
+/* ===============================
+   SKILLS
+================================ */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.skill-tags span,
+.badge {
+  background-color: #21262d !important;
+  color: #e5e7eb;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ===============================
+   LISTS
+================================ */
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* ===============================
+   GLOBAL RESET & THEME
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+/* ===============================
+   LAYOUT
+================================ */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* IMPORTANT: no overflow here */
+.content {
+  margin-left: 64px;
+  /* space for sidebar */
+  width: calc(100% - 64px);
+  padding: 30px;
+}
+
+/* ===============================
+   SIDEBAR (FIXED & FULL HEIGHT)
+================================ */
+.sidebar {
+  position: fixed;
+  /* 🔥 KEY FIX */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  /* full screen */
+  width: 64px;
+
+  background: #020617;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 18px;
+
+  z-index: 2000;
+  /* ABOVE ALL CONTENT */
+}
+
+/* ===============================
+   SIDEBAR ICONS
+================================ */
+.sidebar button {
+  position: relative;
+  background: none;
+  border: none;
+  color: #38bdf8;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sidebar button:hover {
+  transform: scale(1.2);
+  color: #e5e7eb;
+}
+
+/* ===============================
+   SIDEBAR TOOLTIP (TEXT VIEWER)
+================================ */
+.sidebar button::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3000;
+
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar button:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ICON BUTTON */
+.sidebar button {
+  position: relative;
+  background: none;
+  border: none;
+  color: #38bdf8;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.sidebar button:hover {
+  transform: scale(1.2);
+}
+
+/* 🔥 TEXT VIEWER (Modern Tooltip Panel) */
+.sidebar button::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-8px);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* SHOW ON HOVER */
+.sidebar button:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ===============================
+   PROJECT CARD HOVER
+================================ */
+.project-card {
+  background: #161b22;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   PROJECT ACTION LINKS
+================================ */
+.actions a {
+  margin-right: 16px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.actions a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   SCROLLBAR (Optional polish)
+================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 10px;
+}
+
+.card {
+  background: linear-gradient(145deg,
+      #020617,
+      #0f172a);
+  border-radius: 16px;
+  border: 1px solid #1f2937;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.project-card {
+  background: #020617;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #1f2937;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
